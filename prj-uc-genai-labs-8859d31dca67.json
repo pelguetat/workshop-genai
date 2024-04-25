@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "prj-uc-genai-labs",
+  "private_key_id": "8859d31dca6727295398fc0474c95d7a8bdd5daa",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCQML8pBb+62T9X\njWpZi8p8pdfuCAthA2A6NwfmZN7TD4YZz2N/pwhv+wCv/+nfwN+dD8JEvaOQnsli\nV5EI6DvtusLE0Ur5FWve4udKN6F/CewciCwuPVxA2CPZZ3zsg+2ytiMF86lwmVeB\nuw1XXfNJklvspcUDxfqtwtzf19zh8VGveEFc8gddHbrmYChori44T1jSgSpLxEcI\nOdEMSSj9drR8xXWquYFXSR+qdEKbTV+FzO/06NtvUaZPWUsb8njdv4pjHvGtFkC6\n9oottMhuDjUXZRsFrAhrYUVesDA4Hc2PDVKLo2ux0TTcLcmDPlyl2Msrk2xiFiGr\neXIb8evLAgMBAAECggEAEu5DesL6zDD6Tv1jFBn1XhjMA8AMoRJiD41AEptLDKeC\nHLYMwyq5Qd0mLEqgzbQIkm9fkHTcGlWul6Rq3KIuPrpWw05ogHwJKzyGefOvK/sF\nLoMhAc/OjTjouVdhSxAlz2EjB1oD9KOSnewNXAYatfMVnI6bEjFrsGU1aIdybuYf\nNvRx+NdbUGKhzoB+93Fypph5uIaLfVWgku7mAkhfBMnVCox3w/89mcm5O97XE8IH\nId00OvJmCakeDwiUbTUUiXJvwFi14cU4AKUYxbZBDOWNW0WSGrGII23y8+Iihvhi\nlJV3E0bakXBzBjhuNqzC9KjWdWIsV+Ws8Pu9JxnLIQKBgQDBosTH/ATUt8nFCWQ7\nNtLuXdyyN4JWWXfqb05Lo6SkIImwZc5YeTzvCDg2tutMJKaGfEzU/S9duFwsvlMi\n9IVu7r53j7gzNKylCwkWLpTzd2f9bXMwwi7xCbOQlkrnu8TOlisq8CO4pdF07rtV\nSXSIL0hd2WujH4P8xNU4G92dOwKBgQC+oTcwvo7CSdS0FiOzmIeczHXf3nTGrjON\nBw83Q3Xq7dHbaCJ5TZAUzWAZtTOQmmGd+1F9iHYhyasm1JKncPqPGY0Ni9U84laS\nxoRBgKBFNwkWU5XwZ5RLF6vzB6ga16QD6XrvC7eeaOfOFvAvU2p5cqIRFO0IgHIL\nykRmWJ1CsQKBgBS0sxYvfNTCUnEfb/hlBGk44ECubuGM76XCAT1VYmWqlQ6n1Ejh\nrgJhfqFbLg4WXThEUnL0H/yFmlWuhHVYcGxMW1GtrKTNHSkI5Q/aK1NdkWEoMwkj\nuqFLyEfNynS9P25X4IXW5/r2wE8guCeGk098vuBKP5hR5mtBIQu+7xPBAoGATtFn\neV8AtbJDIOaaglJJl/otro9S5yb1p5TIpMfexHDqOPZ4coEwVnmIB3kVRe+e9uwH\niIjYlyXD/z0bGeIrpukgmf47/31x4CP2YQLmwVd9CV8r+odJGDdEYCrFRbvtU7TA\noH/Ovs+PMHXpfxfVSTutaLSnQMGi5d8OouZ2tzECgYEAvNN6yVK9LS0bhkZOqptR\nsBuQ0MCKbvwXuW2eC+wlyH+uSdwjuD37aOqFGxUrZvlF1Ma7rONx5lRuwpif9VDO\nLKv7NZHXRQyGzRzZqOOKc8sZtTXNwpmecsJHfIMvu7jMHShGozorH+t1ncCcdVW0\n5O663QOpHZmpX8ohBL4D2Cs=\n-----END PRIVATE KEY-----\n",
+  "client_email": "workshop-genai-sa@prj-uc-genai-labs.iam.gserviceaccount.com",
+  "client_id": "113325965585222600320",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/workshop-genai-sa%40prj-uc-genai-labs.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
