@@ -20,10 +20,12 @@ for message in st.session_state.messages:
 
 # Function for generating LLM response
 def generate_response(prompt_input):
-    inputs = {"input": {"question": prompt_input}}
-    response = requests.post("http://localhost:8000/invoke", json=inputs)
+    inputs = {"input": prompt_input}
+    response = requests.post("http://localhost:8001/query", json=inputs, timeout=30)
     print(response.text)
-    return response.json()["output"]["answer"]
+    response = response.json()
+    response = response["answer"]
+    return response
 
 
 # User-provided prompt

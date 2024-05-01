@@ -3,19 +3,31 @@
 
 # Import necessary modules for the server setup, language processing, and environmental variables.
 from fastapi import FastAPI
-from langchain.embeddings import OpenAIEmbeddings
-from langchain.vectorstores import Chroma
+from langchain_community.embeddings import OpenAIEmbeddings
+from langchain_community.vectorstores import Chroma
 from langchain.chains import ConversationalRetrievalChain
-from langchain.chat_models import ChatOpenAI
-from langserve import add_routes
+from langchain_google_vertexai import ChatVertexAI
 import os
 from langchain.memory import ConversationBufferMemory
 from dotenv import load_dotenv
+from google.oauth2 import service_account
+from pydantic import BaseModel
 
-# Load environment variables from a specific file path for secure access to sensitive keys.
-load_dotenv(
-    "/Users/pabloelgueta/Documents/manning_course/qa-using-langchain-and-vector-databases-lp-author/project_3/.env"
+
+# Path to your service account key file
+SERVICE_ACCOUNT_FILE = (
+    "/Users/pabloelgueta/Documents/workshops/prj-uc-genai-labs-8859d31dca67.json"
 )
+
+# Define the scopes
+SCOPES = ["https://www.googleapis.com/auth/cloud-platform"]
+
+# Authenticate and construct service
+credentials = service_account.Credentials.from_service_account_file(
+    SERVICE_ACCOUNT_FILE, scopes=SCOPES
+)
+# Load environment variables from a specific file path for secure access to sensitive keys.
+load_dotenv(".env")
 
 # Retrieve API key from environment variables.
 api_key = os.getenv("OPENAI_API_KEY")
@@ -39,10 +51,10 @@ retriever = vectorstore.as_retriever()
 
 # Set up a conversation memory buffer to store chat history, enabling message retrieval.
 memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
-
+llm = ChatVertexAI(model_name="gemini-1.0-pro")
 # Initialize a retrieval chain that connects language logic models (LLMs) with other components, specifying its type and integrations.
 chain = ConversationalRetrievalChain.from_llm(
-    llm=ChatOpenAI(), chain_type="map_reduce", retriever=retriever, memory=memory
+    llm=llm, chain_type="map_reduce", retriever=retriever, memory=memory
 )
 
 # Instantiate a FastAPI application with descriptive metadata.
@@ -52,8 +64,16 @@ app = FastAPI(
     description="Spin up a simple api server using Langchain's Runnable interfaces",
 )
 
-# Register various application routes that allow interaction with the retriever.
-add_routes(app, chain)
+
+class QueryInput(BaseModel):
+    input: str
+
+
+@app.post("/query")
+async def query(body: QueryInput):
+    response = await chain.ainvoke(body.input)
+    return response
+
 
 # Conditional check for direct script run, initializing server host and port settings.
 if __name__ == "__main__":
