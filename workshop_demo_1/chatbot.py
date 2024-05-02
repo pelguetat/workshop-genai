@@ -20,12 +20,15 @@ for message in st.session_state.messages:
 
 # Function for generating LLM response
 def generate_response(prompt_input):
-    inputs = {"input": prompt_input}
-    response = requests.post("http://localhost:8001/query", json=inputs, timeout=30)
-    print(response.text)
-    response = response.json()
-    response = response["answer"]
-    return response
+    try:
+        inputs = {"input": prompt_input}
+        response = requests.post("http://localhost:8001/query", json=inputs, timeout=30)
+        response.raise_for_status()  # Check for HTTP errors
+        response_data = response.json()
+        return response_data.get("answer", "Sorry, I couldn't process that request.")
+    except requests.exceptions.RequestException as e:
+        print(f"Request failed: {e}")
+        return "I'm sorry, but I'm having trouble understanding you right now."
 
 
 # User-provided prompt
